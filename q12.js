@@ -28,13 +28,9 @@
 //     console.log("Book already exists");
 //     return;
 // }
-// //all validation passed after check 
+// //all validation passed after check
 // this.book.push({title,author,year});
 // console.log(`Book added: ${title} by ${author} (${year})`);
-
- 
-
-
 
 // },
 // findBookByTitle(title){
@@ -52,7 +48,6 @@
 //     }
 // }
 
-
 // }
 
 // library.addBook({ title: "uathor", author: "George Orwell", year: 1949 });
@@ -61,11 +56,15 @@ const library = {
   books: [{ title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937 }],
 
   addBook(book) {
-  
     if (
-      !book.title || typeof book.title !== "string" || book.title.trim() === "" ||
-      !book.author || typeof book.author !== "string" || book.author.trim() === "" ||
-      !book.year || typeof book.year !== "number"
+      !book.title ||
+      typeof book.title !== "string" ||
+      book.title.trim() === "" ||
+      !book.author ||
+      typeof book.author !== "string" ||
+      book.author.trim() === "" ||
+      !book.year ||
+      typeof book.year !== "number"
     ) {
       console.log("Error: Book information is incomplete or invalid.");
       return false;
@@ -77,7 +76,7 @@ const library = {
   },
 
   findBookByTitle(title) {
-    const foundBook = this.books.find(book => book.title === title);
+    const foundBook = this.books.find((book) => book.title === title);
     if (!foundBook) {
       console.log(`Book titled "${title}" not found.`);
     }
@@ -85,7 +84,7 @@ const library = {
   },
 
   removeBook(title) {
-    const index = this.books.findIndex(book => book.title === title);
+    const index = this.books.findIndex((book) => book.title === title);
     if (index !== -1) {
       const removed = this.books.splice(index, 1)[0];
       console.log(`Success: "${removed.title}" removed from the library.`);
@@ -94,12 +93,11 @@ const library = {
       console.log(`Error: Book titled "${title}" not found.`);
       return false;
     }
-  }
+  },
 };
 
-
 library.addBook({ title: "1984", author: "George Orwell", year: 1949 }); //  succeed
- library.addBook({ author: "George Orwell", year: 1949 });                //  fail
+library.addBook({ author: "George Orwell", year: 1949 }); //  fail
 
 console.log("Current Library Books Count:", library.books.length);
 
@@ -110,7 +108,6 @@ library.removeBook("The Hobbit");
 library.removeBook("Non-Existent Book");
 
 console.log("Final Library Books:", library.books);
-
 
 // Steps:
 
