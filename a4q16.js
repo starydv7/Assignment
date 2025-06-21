@@ -13,7 +13,7 @@ function fetchUserPosts(callback) {
   setTimeout(() => {
     console.log("User posts received");
     callback(); 
-  }, 1500); // 1500 ms = 1.5 seconds
+  }, 1500); 
 }
 
 // Begin nested API calls
